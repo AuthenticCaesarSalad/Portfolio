@@ -132,9 +132,10 @@ header{ display:flex; flex-wrap:wrap; align-items:center; gap:clamp(1.5rem,4vw,2
   border-radius:34px; background:var(--ink);
   display:flex; align-items:center; justify-content:center;
 }
+.portrait-bg{ fill:#000 }
 .portrait-mark{
   font-family:var(--serif); font-size:5.5rem; font-weight:400;
-  color:var(--accent); line-height:1;
+  fill:var(--accent); line-height:1;
 }
 
 .matrix{
