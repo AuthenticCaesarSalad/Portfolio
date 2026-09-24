@@ -25,21 +25,7 @@ const ctx = canvas ? canvas.getContext("2d") : null;
 if (canvas && ctx && !reduceMotion) {
   const cell = 16;
   const chars = "01<>{}[]/\\$#%&*+=";
-  let accent = [13, 107, 69];
-  let paper = [246, 244, 239];
   let drops = [];
-
-  const toRgb = (value) => {
-    const hex = value.trim().replace("#", "");
-    if (hex.length !== 6) return null;
-    return [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16));
-  };
-
-  const readTheme = () => {
-    const styles = getComputedStyle(document.documentElement);
-    accent = toRgb(styles.getPropertyValue("--accent")) || accent;
-    paper = toRgb(styles.getPropertyValue("--paper")) || paper;
-  };
 
   const resize = () => {
     // ponytail: 1x backing store, soft glyphs on HiDPI. Multiply by devicePixelRatio if it looks blurry.
@@ -53,17 +39,24 @@ if (canvas && ctx && !reduceMotion) {
   };
 
   const draw = () => {
-    ctx.fillStyle = `rgba(${paper.join(",")}, 0.16)`;
+    const paperR = getComputedStyle(document.documentElement).getPropertyValue("--paper-r").trim();
+    const paperG = getComputedStyle(document.documentElement).getPropertyValue("--paper-g").trim();
+    const paperB = getComputedStyle(document.documentElement).getPropertyValue("--paper-b").trim();
+    const accentR = getComputedStyle(document.documentElement).getPropertyValue("--accent-r").trim();
+    const accentG = getComputedStyle(document.documentElement).getPropertyValue("--accent-g").trim();
+    const accentB = getComputedStyle(document.documentElement).getPropertyValue("--accent-b").trim();
+
+    ctx.fillStyle = `rgba(${paperR},${paperG},${paperB}, 0.16)`;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = `bold ${cell}px monospace`;
     for (let i = 0; i < drops.length; i++) {
       const drop = drops[i];
       const y = drop.y * cell;
-      ctx.fillStyle = `rgba(${accent.join(",")}, 0.3)`;
+      ctx.fillStyle = `rgba(${accentR},${accentG},${accentB}, 0.3)`;
       ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * cell, y - cell * 2);
-      ctx.fillStyle = `rgba(${accent.join(",")}, 0.55)`;
+      ctx.fillStyle = `rgba(${accentR},${accentG},${accentB}, 0.55)`;
       ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * cell, y - cell);
-      ctx.fillStyle = `rgba(${accent.join(",")}, 1)`;
+      ctx.fillStyle = `rgba(${accentR},${accentG},${accentB}, 1)`;
       ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * cell, y);
       drop.y += drop.speed;
       if (y > canvas.height && Math.random() > 0.975) drop.y = -Math.random() * 20;
@@ -71,10 +64,8 @@ if (canvas && ctx && !reduceMotion) {
     requestAnimationFrame(draw);
   };
 
-  readTheme();
   resize();
   draw();
 
   window.addEventListener("resize", resize);
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readTheme);
 }

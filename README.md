@@ -8,7 +8,7 @@ A single-page portfolio site, built from scratch. No build step, no dependencies
 
 **Caesarico Bayu Sejati** — twelfth-grade Computer & Network Engineering student at SMK Darma Siswa 1 Waru, Sidoarjo, East Java, Indonesia.
 
-I work on IT infrastructure, DevOps, and containerization, with a side interest in OSINT and security research.
+I work on IT infrastructure, Linux system administration, and cybersecurity.
 
 ## Contact
 
@@ -20,16 +20,16 @@ I work on IT infrastructure, DevOps, and containerization, with a side interest 
 ## What I Do
 
 ### Systems & Tooling
-Linux (Ubuntu, Kali) · Bash / CLI · Docker & containers · system administration · HTML & CSS
+Linux (Ubuntu, Kali) · Bash / CLI · System administration · HTML & CSS
 
 ### Networking
-Computer networking · network configuration
+Computer networking · Network configuration
 
 ### Servers & Virtualization
-Virtual machines · Docker & containerization · server administration
+Virtual machines · Server administration
 
 ### Security Research
-OSINT · open-source intelligence gathering
+Cybersecurity · Threat analysis · Vulnerability assessment
 
 ## Experience
 
@@ -41,12 +41,12 @@ Senior-year internship supporting IT operations, applying networking and system 
 ### Web Developer & Intern — CSRG PENS
 *11th grade*
 
-Internship with the Cyber Security Research Group at Politeknik Elektronika Negeri Surabaya (PENS), contributing to their web profile alongside OSINT research into publicly available data. See [c307.pens.ac.id](https://c307.pens.ac.id).
+Internship with the Cyber Security Research Group at Politeknik Elektronika Negeri Surabaya (PENS), contributing to their web profile. See [c307.pens.ac.id](https://c307.pens.ac.id).
 
-### Homelab, Containers & Deployment
+### Homelab & Security Research
 *Personal*
 
-Most of my free time goes to Linux: managing virtual machines, running Docker containers, and deploying custom desktop environments like Hyprland. I also build container-based labs to practice server deployment and administration.
+Most of my free time goes to Linux: managing virtual machines, running server services, and deploying custom desktop environments like Hyprland. I also build virtual labs to practice server deployment and administration.
 
 ## Repository Structure
 
