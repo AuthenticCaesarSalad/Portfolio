@@ -9,6 +9,22 @@ A single-page, **terminal-style** portfolio site. No build step, no dependencies
 
 I work on IT infrastructure, Linux system administration, and cybersecurity.
 
+## Metadata & Attribution
+
+This portfolio was created by **Caesarico Bayu Sejati**, a student of **SMK Darma Siswa 1 Waru, Sidoarjo**, and is self-authored — no template, generator or framework.
+
+The attribution is machine-readable in the `<head>` of `index.html`:
+
+| Kind | Tags |
+|---|---|
+| Authorship | `author`, `creator`, `designer`, `owner`, `copyright`, `publisher` |
+| Social preview | Open Graph (`og:type=profile`, `og:title`, `og:description`, `og:image`, `profile:*`) |
+| Twitter / X | `twitter:card`, `twitter:title`, `twitter:description`, `twitter:creator` |
+| Structured data | JSON-LD `schema.org/Person` — name, `alumniOf` (SMK Darma Siswa 1 Waru), Sidoarjo address, `knowsAbout`, GitHub `sameAs` |
+| SEO | `description`, `robots`, `canonical`, `theme-color` |
+
+> The absolute URLs use the deployed domain `https://projek-bayu.my.id/`. Update `canonical`, `og:url`, `og:image` and `twitter:image` if the site moves.
+
 ## Contact
 
 | | |
