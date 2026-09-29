@@ -70,11 +70,14 @@ Most of my free time goes to Linux: managing virtual machines, containerising se
 
 | File | Purpose |
 |---|---|
-| `index.html` | Page markup and content |
+| `index.html` | Page markup, content and SEO metadata |
 | `style.css` | Terminal theme, responsive layout, reduced-motion handling |
 | `index.js` | Scramble headline, typewriter terminal, live clock, scroll reveals, interactive shell |
 | `favico.png` | Site favicon (512×512), also used as the apple-touch-icon |
-| `.backup/` | The original paper/editorial design, kept for reference |
+| `robots.txt` | Allows all crawlers, points at the sitemap |
+| `sitemap.xml` | Single-URL sitemap for `projek-bayu.my.id` |
+| `vercel.json` | Static deploy config — security headers and cache rules |
+| `.backup/` | The original paper/editorial design, kept for reference (git-ignored, never deployed) |
 
 ## Interactive Shell
 
@@ -94,3 +97,23 @@ Open `index.html` in any browser, or serve it:
 python -m http.server 8000
 # then visit http://localhost:8000
 ```
+
+## Deploying — Vercel + Cloudflare
+
+The site is plain static files, so Vercel needs no build step. `vercel.json` sets `framework: null`.
+
+1. **Push to GitHub**, then in Vercel → *Add New Project* → import the repo. Leave Build Command and Output Directory empty.
+2. **Add the domain** in Vercel → Settings → Domains → `projek-bayu.my.id`. Vercel will ask for a `CNAME` record pointing at `cname.vercel-dns.com`.
+3. **In Cloudflare DNS**, create that record with **Proxy status = DNS only (grey cloud)**. Proxied + Vercel both terminate TLS and cause redirect loops.
+4. **In Cloudflare → SSL/TLS**, set encryption mode to **Full (strict)**, and enable **Always Use HTTPS** under Edge Certificates.
+5. Back in Vercel, confirm the domain passes its check, and make sure `www.` redirects to the apex so authority isn't split.
+
+### After it goes live
+
+- Verify the property in [Google Search Console](https://search.google.com/search-console) using a **Domain** property, then add Cloudflare's verification TXT record.
+- Open *URL Inspection* → **Request Indexing**. This is what cuts discovery from weeks to days.
+- Add `https://projek-bayu.my.id/sitemap.xml` under *Sitemaps*.
+- Import the same property into [Bing Webmaster Tools](https://www.bing.com/webmasters) — it syndicates to DuckDuckGo and ChatGPT search.
+- Test social previews with the Open Graph debugger and X's Card Validator.
+
+Absolute URLs used in `canonical`, `og:*`, `twitter:*`, JSON-LD, `robots.txt` and `sitemap.xml` all assume `https://projek-bayu.my.id/`. Update them together if the domain changes.

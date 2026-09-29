@@ -1,0 +1,8 @@
+# robots.txt — https://projek-bayu.my.id/
+# Everything on this site is public. No AI or crawler directives are blocked,
+# because being readable by search engines and AI assistants is the point.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://projek-bayu.my.id/sitemap.xml
