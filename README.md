@@ -2,11 +2,6 @@
 
 A single-page, **terminal-style** portfolio site. No build step, no dependencies, no framework — just HTML, CSS and vanilla JS.
 
-The look is inspired by [demo-terminal.sitesplaced.com](https://demo-terminal.sitesplaced.com/): a dark `#0A0E14` background, `JetBrains Mono`, a macOS-style window bar, green (`#7FEEA0`) accents, CRT scanlines, `$ command` project cards, `git log` experience entries and a working interactive shell at the bottom.
-
-> The previous editorial/paper design is kept in `.backup/` if you want to switch back.
-
----
 
 ## About
 
