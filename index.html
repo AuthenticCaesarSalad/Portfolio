@@ -1,108 +1,248 @@
-
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Caesarico Bayu Sejati — IT Infrastructure & Cybersecurity</title>
-<meta name="description" content="Caesarico Bayu Sejati — twelfth-grade computer and network engineering student in Sidoarjo, Indonesia. Linux, networking, and cybersecurity.">
-<meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e100f" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e100f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%235fd39c' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<title>Caesarico Bayu Sejati — IT Infrastructure &amp; Cybersecurity</title>
+<meta name="description" content="Caesarico Bayu Sejati — twelfth-grade Computer and Network Engineering student. Linux, networking, and cybersecurity. A terminal-style portfolio.">
+<meta name="theme-color" content="#0A0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0E14'/%3E%3Ctext x='6' y='22' font-family='monospace' font-size='15' fill='%237FEEA0'%3E%3E_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas class="matrix" aria-hidden="true"></canvas>
 <a class="skip" href="#about">Skip to content</a>
 
-<div class="wrap">
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section class="hero" id="top">
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="hero-inner">
 
-  <header>
-    <div class="portrait" role="img" aria-label="Monogram portrait of Caesarico Bayu Sejati">
-      <svg viewBox="0 0 160 160" focusable="false" aria-hidden="true">
-        <rect class="portrait-bg" width="160" height="160" rx="34"></rect>
-        <text class="portrait-mark" x="80" y="113" text-anchor="middle">C</text>
-      </svg>
+    <div class="window-bar">
+      <span class="light red"></span>
+      <span class="light yellow"></span>
+      <span class="light green"></span>
+      <span class="shell-name">guest@portfolio &middot; zsh</span>
     </div>
-    <div class="intro">
-      <p class="eyebrow">Sidoarjo, East Java &middot; Indonesia</p>
-      <h1>Caesarico Bayu Sejati</h1>
-      <p class="role">IT Infrastructure &amp; Cybersecurity Enthusiast</p>
-      <p class="lede">Twelfth-grade computer and network engineering student. I configure networks, run Linux, and spend my free time breaking and securing things.</p>
-      <div class="contact">
-        <a href="mailto:caesaricob@gmail.com">caesaricob@gmail.com</a>
-        <a href="https://github.com/AuthenticCaesarSalad">github.com/AuthenticCaesarSalad</a>
+
+    <h1 class="headline" data-scramble="Caesarico Bayu Sejati">Caesarico Bayu Sejati<span class="dot">.</span></h1>
+    <p class="tagline">IT Infrastructure &amp; Cybersecurity &middot; Sidoarjo, East Java</p>
+
+    <div class="term">
+      <div class="term-head">
+        <span>~/about</span>
+        <span class="term-status">SSH &middot; <span id="clock">--:--</span> &middot; <span class="ok">online</span></span>
+      </div>
+      <div class="term-body">
+        <div class="line"><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+        <div class="out">caesarico.bayu &mdash; 12th grade, Computer &amp; Network Engineering</div>
+
+        <div class="line"><span class="prompt">$</span> <span class="cmd">cat role.txt</span></div>
+        <div class="out">it infrastructure &amp; cybersecurity enthusiast</div>
+        <div class="out">currently: intern @ PT E-T-A Indonesia</div>
+
+        <div class="line"><span class="prompt">$</span> <span class="cmd">ls homelab/ --status</span></div>
+        <div class="out"><span class="ok">[up]</span> ubuntu.server &middot; <span class="ok">[up]</span> kali.vm &middot; <span class="ok">[up]</span> docker.registry</div>
+        <div class="out"><span class="ok">[up]</span> ci.pipeline &middot; <span class="ok">[up]</span> proxmox.nodes &middot; <span class="dim">[idle]</span> sleep.schedule</div>
+
+        <div class="line"><span class="prompt">$</span> <span class="cmd">scroll</span><span class="cursor">&nbsp;</span></div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section class="band" id="about">
+  <div class="inner narrow">
+    <p class="label">// about</p>
+    <h2 class="h2"><span class="hash">##</span> Hello, world. I am Bayu.</h2>
+    <div class="reveal">
+      <p class="body">A twelfth-grade Computer and Network Engineering student at SMK Darma Siswa&nbsp;1 Waru, Sidoarjo. I configure networks, administer Linux systems, and spend my free time breaking things just to learn how to secure them properly.</p>
+      <p class="body">From bare-metal servers and virtual machines to containerised deployments and CI/CD pipelines &mdash; I like getting my hands dirty with the parts of tech most people never look at. Always learning, always building, always shipping.</p>
+    </div>
 
-    <section id="about">
-      <h2>About</h2>
-      <div class="reveal">
-        <p>Hey there! I&rsquo;m Bayu, a 12th-grade Computer and Network Engineering student at SMK Darma Siswa 1 Waru, Sidoarjo.</p>
-        <p>I&rsquo;m passionate about networking, Linux system administration, and going deep on cybersecurity. Configuring network topologies, managing Ubuntu and Kali environments, building out web profiles &mdash; I like getting my hands dirty with tech. Always looking to learn, build, and secure things.</p>
+    <dl class="stats">
+      <div><dt>lab uptime</dt><dd>3+ yrs</dd></div>
+      <div><dt>shells opened</dt><dd>12k</dd></div>
+      <div><dt>coffee</dt><dd>&infin;</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROJECTS ══════════════════════ -->
+<section class="band" id="projects">
+  <div class="inner">
+    <p class="label">// projects</p>
+    <h2 class="h2"><span class="hash">##</span> Things I built when I should've been sleeping</h2>
+
+    <div class="cards reveal">
+      <a class="card" href="https://c307.pens.ac.id" target="_blank" rel="noopener noreferrer">
+        <div class="card-cmd"><span class="prompt">$</span> <span class="kw">cd</span> csrg/web-profile <span class="stars">&#9733; prod</span></div>
+        <p class="card-desc">Web profile for the Cyber Security Research Group at Politeknik Elektronika Negeri Surabaya. Built and shipped during my internship.</p>
+        <div class="tags"><span>react.js</span><span>tailwind</span><span>nginx</span><span>docker</span></div>
+        <div class="card-open">open <span class="arrow">&rarr;</span> <span class="url">c307.pens.ac.id</span></div>
+      </a>
+
+      <div class="card">
+        <div class="card-cmd"><span class="prompt">$</span> <span class="kw">cd</span> ~/homelab <span class="stars">&#9733; 24/7</span></div>
+        <p class="card-desc">Self-hosted lab: Proxmox nodes, Ubuntu servers, Kali VMs and a pi-hole gateway. Containerised services, reverse proxies and automated backups run on it daily.</p>
+        <div class="tags"><span>linux</span><span>proxmox</span><span>docker</span><span>compose</span></div>
+        <div class="card-open">status <span class="arrow">&rarr;</span> <span class="ok">all services up</span></div>
       </div>
-    </section>
 
-    <section id="experience">
-      <h2>Experience &amp; Projects</h2>
-      <ol class="log reveal">
-        <li>
-          <p class="when">Current &middot; 12th grade</p>
-          <h3>Intern &mdash; PT E-T-A Indonesia</h3>
-          <p>Senior-year internship at PT E-T-A Indonesia. I help manage and support IT operations, applying networking and system administration skills in a real-world industrial environment.</p>
-        </li>
-        <li>
-          <p class="when">11th grade</p>
-          <h3>Web Developer &amp; Intern &mdash; CSRG PENS</h3>
-          <p>Internship with the Cyber Security Research Group (CSRG) at Politeknik Elektronika Negeri Surabaya (PENS), where I contributed directly to the development of their web profile. See it at <a href="https://c307.pens.ac.id">c307.pens.ac.id</a>.</p>
-        </li>
-        <li>
-          <p class="when">Personal</p>
-          <h3>Homelab &amp; Security Research</h3>
-          <p>Most of my free time goes to Linux: managing virtual machines, running server services, and deploying custom desktop environments like Hyprland. I also build virtual labs to practice server deployment and administration.</p>
-        </li>
-      </ol>
-    </section>
+      <div class="card">
+        <div class="card-cmd"><span class="prompt">$</span> <span class="kw">cd</span> infra/pipelines <span class="stars">&#9733; git</span></div>
+        <p class="card-desc">Containerised services built with multi-stage Dockerfiles and shipped through CI/CD pipelines &mdash; build, test and deploy on every push, rolled out to a k3s cluster with zero-downtime releases.</p>
+        <div class="tags"><span>docker</span><span>kubernetes</span><span>ci/cd</span><span>github actions</span></div>
+        <div class="card-open">deploy <span class="arrow">&rarr;</span> <span class="ok">automated</span></div>
+      </div>
 
-    <section id="stack">
-      <h2>Tech Stack &amp; Skills</h2>
-      <dl class="spec reveal">
-        <div>
-          <dt>Systems &amp; tooling</dt>
-          <dd>Linux (Ubuntu, Kali) &middot; Bash / CLI &middot; System administration &middot; HTML &amp; CSS</dd>
-        </div>
-        <div>
-          <dt>Networking</dt>
-          <dd>Computer networking &middot; Network configuration</dd>
-        </div>
-        <div>
-          <dt>Servers &amp; virtualization</dt>
-          <dd>Virtual machines &middot; Server administration</dd>
-        </div>
-      </dl>
-    </section>
+      <div class="card">
+        <div class="card-cmd"><span class="prompt">$</span> <span class="kw">cd</span> netlab/topologies <span class="stars">&#9733; lab</span></div>
+        <p class="card-desc">Virtual network topologies for practising routing, VLANs, firewall rules and server deployment &mdash; then attacking them to see what leaks.</p>
+        <div class="tags"><span>packet tracer</span><span>gns3</span><span>vlan</span></div>
+        <div class="card-open">threat model <span class="arrow">&rarr;</span> <span class="ok">documented</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact">
-      <h2>Let&rsquo;s Connect</h2>
-      <div class="reveal">
-        <p>If you want to talk about networking, Linux, or any cool tech projects, feel free to reach out to me.</p>
-        <ul class="links">
-          <li><a href="mailto:caesaricob@gmail.com">caesaricob@gmail.com</a></li>
-          <li><a href="https://github.com/AuthenticCaesarSalad">github.com/AuthenticCaesarSalad</a></li>
+<!-- ══════════════════════ STACK ══════════════════════ -->
+<section class="band" id="stack">
+  <div class="inner">
+    <p class="label">// stack</p>
+    <h2 class="h2"><span class="hash">##</span> What's in my .bashrc</h2>
+
+    <div class="cols reveal">
+      <div class="col">
+        <p class="col-head">systems</p>
+        <ul>
+          <li><span>&rsaquo;</span> linux (ubuntu, kali)</li>
+          <li><span>&rsaquo;</span> bash / cli</li>
+          <li><span>&rsaquo;</span> sysadmin</li>
+          <li><span>&rsaquo;</span> termux</li>
         </ul>
       </div>
-    </section>
+      <div class="col">
+        <p class="col-head">networking</p>
+        <ul>
+          <li><span>&rsaquo;</span> tcp/ip</li>
+          <li><span>&rsaquo;</span> vlan / routing</li>
+          <li><span>&rsaquo;</span> firewall rules</li>
+          <li><span>&rsaquo;</span> DNS</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="col-head">servers</p>
+        <ul>
+          <li><span>&rsaquo;</span> virtualization</li>
+          <li><span>&rsaquo;</span> proxmox</li>
+          <li><span>&rsaquo;</span> ubuntu server</li>
+          <li><span>&rsaquo;</span> ssh hardening</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="col-head">security</p>
+        <ul>
+          <li><span>&rsaquo;</span> threat analysis</li>
+          <li><span>&rsaquo;</span> OSINT Enthusiast</li>
+          <li><span>&rsaquo;</span> wireshark</li>
+          <li><span>&rsaquo;</span> nmap</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="col-head">web</p>
+        <ul>
+          <li><span>&rsaquo;</span> html</li>
+          <li><span>&rsaquo;</span> css</li>
+          <li><span>&rsaquo;</span> javascript</li>
+          <li><span>&rsaquo;</span> git</li>
+        </ul>
+      </div>
+      <div class="col">
+        <p class="col-head">devops</p>
+        <ul>
+          <li><span>&rsaquo;</span> docker / containers</li>
+          <li><span>&rsaquo;</span> kubernetes</li>
+          <li><span>&rsaquo;</span> ci/cd pipelines</li>
+          <li><span>&rsaquo;</span> github actions</li>
+          <li><span>&rsaquo;</span> nginx / reverse proxy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </main>
+<!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+<section class="band" id="experience">
+  <div class="inner">
+    <p class="label">// experience</p>
+    <h2 class="h2"><span class="hash">##</span> git log --oneline --career</h2>
 
-  <footer>
-    <p>&copy; <span id="year">2026</span> Caesarico Bayu Sejati. Built from scratch.</p>
-  </footer>
+    <ol class="log reveal">
+      <li>
+        <div class="log-head">
+          <span class="sha">a1f90c2</span>
+          <span class="role">Intern</span><span class="at">@</span><span class="org">PT E-T-A Indonesia</span>
+        </div>
+        <p class="meta">2026 &mdash; present &middot; Sidoarjo, East Java</p>
+        <p class="body">Senior-year internship supporting IT operations &mdash; applying networking and system administration skills inside a real industrial environment.</p>
+      </li>
+      <li>
+        <div class="log-head">
+          <span class="sha">7d3b1e8</span>
+          <span class="role">Web Developer &amp; Intern</span><span class="at">@</span><span class="org">CSRG PENS</span>
+        </div>
+        <p class="meta">2024 &mdash; 2025 &middot; Surabaya</p>
+        <p class="body">Worked with the Cyber Security Research Group at Politeknik Elektronika Negeri Surabaya, contributing directly to the development of their web profile.</p>
+      </li>
+      <li>
+        <div class="log-head">
+          <span class="sha">0c2be44</span>
+          <span class="role">Homelab, DevOps &amp; Security Research</span><span class="at">@</span><span class="org">localhost</span>
+        </div>
+        <p class="meta">2022 &mdash; present &middot; my bedroom</p>
+        <p class="body">Most of my free time goes to Linux: managing virtual machines, containerising services with Docker, wiring up CI/CD pipelines for automated builds and deployments, and building virtual labs to practise server deployment, administration and infrastructure automation.</p>
+      </li>
+    </ol>
+  </div>
+</section>
 
-</div>
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section class="band" id="contact">
+  <div class="inner narrow">
+    <p class="label">// contact</p>
+    <h2 class="h2"><span class="hash">##</span> Open a connection</h2>
+    <p class="body">I read every email. Hiring? Internship? Just want to nerd out about Linux or Vim?</p>
+
+    <div class="connect">
+      <div class="line"><span class="prompt">$</span> <span class="dim">mail -s "hello"</span> <a href="mailto:caesaricob@gmail.com">caesaricob@gmail.com</a></div>
+      <div class="socials">
+        <a href="https://github.com/AuthenticCaesarSalad" target="_blank" rel="noopener noreferrer"><span>&middot;</span> github @AuthenticCaesarSalad</a>
+        <a href="https://projek-bayu.my.id" target="_blank" rel="noopener noreferrer"><span>&middot;</span> web projek-bayu.my.id</a>
+        <a href="mailto:caesaricob@gmail.com"><span>&middot;</span> email caesaricob@gmail.com</a>
+      </div>
+    </div>
+
+    <form class="shell-input" id="shell-form" autocomplete="off">
+      <span class="prompt">$</span>
+      <label class="sr-only" for="shell-cmd">Type a command</label>
+      <input id="shell-cmd" name="cmd" placeholder="type a command &mdash; try: help" spellcheck="false">
+    </form>
+    <pre class="shell-out" id="shell-out" aria-live="polite"></pre>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="inner">
+    <p>Connection ended &middot; 0 packets lost &middot; &copy; <span id="year">2026</span> Caesarico Bayu Sejati &middot; made with &#10084;&#65039; in a terminal</p>
+  </div>
+</footer>
+
+<div class="status-pill" aria-hidden="true">guest@portfolio &middot; zsh</div>
+
 <script src="index.js" defer></script>
 </body>
 </html>
