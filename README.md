@@ -57,6 +57,7 @@ Most of my free time goes to Linux: managing virtual machines, containerising se
 | `index.html` | Page markup and content |
 | `style.css` | Terminal theme, responsive layout, reduced-motion handling |
 | `index.js` | Scramble headline, typewriter terminal, live clock, scroll reveals, interactive shell |
+| `favico.png` | Site favicon (512×512), also used as the apple-touch-icon |
 | `.backup/` | The original paper/editorial design, kept for reference |
 
 ## Interactive Shell
