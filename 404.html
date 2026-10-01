@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — route not found · Caesarico Bayu Sejati</title>
+<meta name="description" content="404 — the route you requested does not exist. Connection refused by the terminal portfolio of Caesarico Bayu Sejati.">
+<meta name="theme-color" content="#0A0E14">
+<meta name="author" content="Caesarico Bayu Sejati">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://projek-bayu.my.id/404">
+
+<link rel="icon" type="image/png" href="favico.png">
+<link rel="apple-touch-icon" href="favico.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="err-wrap">
+<a class="skip" href="#notfound">Skip to content</a>
+
+<main class="err-main" id="notfound">
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="hero-inner">
+
+    <div class="window-bar">
+      <span class="light red"></span>
+      <span class="light yellow"></span>
+      <span class="light green"></span>
+      <span class="shell-name">Bayu@portfolio &middot; kitty &middot; exit 1</span>
+    </div>
+
+    <p class="label">// error 404</p>
+
+    <h1 class="err-code" data-scramble="404">404</h1>
+    <p class="tagline"><span class="err-path">No such file or directory</span> &mdash; the route you requested was never committed.</p>
+
+    <div class="term">
+      <div class="term-head">
+        <span>~/not-found</span>
+        <span class="term-status">SSH &middot; <span id="clock">--:--</span> &middot; <span class="err-path">denied</span></span>
+      </div>
+      <div class="term-body">
+        <div class="line"><span class="prompt">$</span> <span class="cmd">cat <span id="req-path">/unknown</span></span></div>
+        <div class="out"><span class="err-path">cat: <span id="req-path-2">/unknown</span>: No such file or directory</span></div>
+
+        <div class="line"><span class="prompt">$</span> <span class="cmd">http --status</span></div>
+        <div class="out">404 Not Found &middot; the object does not exist on this server</div>
+
+        <div class="line"><span class="prompt">$</span> <span class="cmd">hint</span></div>
+        <div class="out">try <span class="ok">cd ~</span> &rarr; head back to the <a class="ok" href="index.html">homepage</a>, or run <span class="ok">help</span> below</div>
+      </div>
+    </div>
+
+    <div class="err-actions">
+      <a class="btn primary" href="index.html">&larr; back to ~ (home)</a>
+      <a class="btn" href="index.html#contact">open a connection</a>
+      <a class="btn" href="https://github.com/AuthenticCaesarSalad" target="_blank" rel="noopener noreferrer">github</a>
+    </div>
+
+    <form class="shell-input" id="shell-form" autocomplete="off">
+      <span class="prompt">$</span>
+      <label class="sr-only" for="shell-cmd">Type a command</label>
+      <input id="shell-cmd" name="cmd" placeholder="type a command &mdash; try: help" spellcheck="false">
+    </form>
+    <pre class="shell-out" id="shell-out" aria-live="polite"></pre>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="inner">
+    <p>Connection ended &middot; exit code 1 &middot; &copy; <span id="year">2026</span> Caesarico Bayu Sejati &middot; made with "Mind" in a terminal</p>
+  </div>
+</footer>
+
+<div class="status-pill" aria-hidden="true">Bayu@portfolio &middot; kitty</div>
+
+<script>
+(function () {
+  "use strict";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── footer year ── */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ── show the requested path ── */
+  (function showPath() {
+    const raw = location.pathname + location.search + location.hash;
+    const pretty = decodeURIComponent(raw) || "/";
+    const shown = pretty.length > 72 ? pretty.slice(0, 69) + "..." : pretty;
+    for (const id of ["req-path", "req-path-2"]) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = shown;
+    }
+  })();
+
+  /* ── live clock ── */
+  (function clock() {
+    const el = document.getElementById("clock");
+    if (!el) return;
+    const tick = () => {
+      const d = new Date();
+      el.textContent = String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+    };
+    tick();
+    setInterval(tick, 15000);
+  })();
+
+  /* ── 404 scramble/decode ── */
+  (function scramble() {
+    const el = document.querySelector("[data-scramble]");
+    if (!el || reduceMotion) return;
+    const final = el.dataset.scramble;
+    const glyphs = "!<>-_\\/[]{}—=+*^?#01ABCDEFabcdef$%&";
+    let frame = 0;
+
+    const run = () => {
+      const revealed = Math.floor(frame / 3);
+      let out = "";
+      for (let i = 0; i < final.length; i++) {
+        if (i < revealed) out += final[i];
+        else out += glyphs[Math.floor(Math.random() * glyphs.length)];
+      }
+      el.textContent = out;
+      frame++;
+      if (revealed < final.length) requestAnimationFrame(run);
+      else el.textContent = final;
+    };
+    run();
+  })();
+
+  /* ── mini shell ── */
+  (function shell() {
+    const form = document.getElementById("shell-form");
+    const input = document.getElementById("shell-cmd");
+    const out = document.getElementById("shell-out");
+    if (!form || !input || !out) return;
+
+    const root = location.origin + "/";
+    const print = (text, err) => {
+      const div = document.createElement("div");
+      if (err) div.className = "err";
+      div.textContent = text;
+      out.appendChild(div);
+      out.scrollIntoView({ block: "nearest" });
+    };
+
+    const commands = {
+      help() {
+        print('commands: help, whoami, ls, pwd, cd, status, sudo, clear, home, exit');
+      },
+      whoami() { print("guest@404 — lost, but welcome"); },
+      ls() { print("index.html  style.css  index.js  favico.png  robots.txt  sitemap.xml"); },
+      pwd() { print(location.pathname); },
+      cd() { print("cd: no such directory — use the `home` command to return", true); },
+      status() { print("404 Not Found · the object does not exist on this server", true); },
+      sudo() { print("guest is not in the sudoers file. This incident has been reported.", true); },
+      home() { print("redirecting to ~ ..."); setTimeout(() => { location.href = "index.html"; }, 450); },
+      exit() { print("there is no exit from a 404. try `home`.", true); },
+      clear() { out.textContent = ""; },
+    };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const raw = input.value.trim();
+      input.value = "";
+      if (!raw) return;
+      print("$ " + raw);
+      const cmd = raw.split(/\s+/)[0].toLowerCase();
+      if (commands[cmd]) commands[cmd]();
+      else print("bash: " + cmd + ": command not found", true);
+    });
+
+    /* focus shell on desktop when arriving */
+    if (!reduceMotion && window.matchMedia("(min-width: 48rem)").matches) {
+      setTimeout(() => input.focus({ preventScroll: true }), 600);
+    }
+  })();
+})();
+</script>
+</body>
+</html>
