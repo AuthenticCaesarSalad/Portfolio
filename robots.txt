@@ -5,4 +5,6 @@
 User-agent: *
 Allow: /
 
+# Nothing here is private, thin or duplicate — no Disallow rules needed.
+
 Sitemap: https://projek-bayu.my.id/sitemap.xml

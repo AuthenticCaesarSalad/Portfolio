@@ -18,12 +18,41 @@ The attribution is machine-readable in the `<head>` of `index.html`:
 | Kind | Tags |
 |---|---|
 | Authorship | `author`, `creator`, `designer`, `owner`, `copyright`, `publisher` |
-| Social preview | Open Graph (`og:type=profile`, `og:title`, `og:description`, `og:image`, `profile:*`) |
-| Twitter / X | `twitter:card`, `twitter:title`, `twitter:description`, `twitter:creator` |
-| Structured data | JSON-LD `schema.org/Person` — name, `alumniOf` (SMK Darma Siswa 1 Waru), Sidoarjo address, `knowsAbout`, GitHub `sameAs` |
-| SEO | `description`, `robots`, `canonical`, `theme-color` |
+| Search basics | `description`, `robots` (`max-image-preview:large`), `canonical`, `theme-color`, `geo.region`, `geo.placename`, `geo.position`, `ICBM` |
+| Social preview | Open Graph (`og:type=profile`, `og:title`, `og:description`, `og:image` → `og.png`, `profile:*`) |
+| Twitter / X | `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image` → `og.png`, `twitter:creator`, `twitter:site` |
+| Structured data | JSON-LD `@graph`: `WebSite` + `ProfilePage` + `ImageObject` + `Person` (name, `jobTitle`, `hasOccupation`, `knowsAbout`, `knowsLanguage`, `worksFor`, `alumniOf`, Sidoarjo address, GitHub/X `sameAs`) |
 
 > The absolute URLs use the deployed domain `https://projek-bayu.my.id/`. Update `canonical`, `og:url`, `og:image` and `twitter:image` if the site moves.
+
+### Social preview image
+
+`og.png` is a **1200×630** terminal-style card used by Open Graph and Twitter/X.
+Favicons are square and get letterboxed or cropped by most platforms, so they are
+not used for link previews. Regenerate it after changing the name, role or stack.
+
+## SEO Notes
+
+The page is a single URL, so most of the SEO work is on-page:
+
+- **Crawlable navigation** — a sticky `<nav>` with real `<a href="#…">` links to
+  every section, so crawlers can reach all content from the first paint.
+- **Landmarks & outline** — one `<h1>`, five `<h2>` sections, ten `<h3>` for
+  project cards and stack groups; `<header>` / `<main>` / `<nav>` / `<footer>` wrap
+  the document and every section is `aria-labelledby` its heading.
+- **Keyword-bearing copy** — the About and Contact sections name the terms people
+  actually search for (IT infrastructure, cybersecurity, Linux, DevOps, Sidoarjo)
+  in readable sentences, not stuffed tags.
+- **Machine-readable dates** — career entries use `<time datetime="…">`.
+- **Social card** — `og.png` at the 1200×630 that Facebook, LinkedIn, Discord and
+  X expect, so shared links render a large card instead of a small thumbnail.
+
+### Not done, on purpose
+
+- No `<meta name="keywords">` — Google ignores it; it only advertises your terms
+  to competitors.
+- No hidden or duplicate keyword blocks — that is cloaking, and it backfires.
+- No `hreflang` — the page is single-language.
 
 ## Contact
 
@@ -72,8 +101,8 @@ Most of my free time goes to Linux: managing virtual machines, containerising se
 |---|---|
 | `index.html` | Page markup, content and SEO metadata |
 | `style.css` | Terminal theme, responsive layout, reduced-motion handling |
-| `index.js` | Scramble headline, typewriter terminal, live clock, scroll reveals, interactive shell |
-| `favico.png` | Site favicon (512×512), also used as the apple-touch-icon |
+| `index.js` | Scramble headline, typewriter terminal, live clock, scroll reveals, interactive shell || `favico.png` | Site favicon (512×512), also used as the apple-touch-icon |
+| `og.png` | 1200×630 social preview card (Open Graph / Twitter card) |
 | `robots.txt` | Allows all crawlers, points at the sitemap |
 | `sitemap.xml` | Single-URL sitemap for `projek-bayu.my.id` |
 | `vercel.json` | Static deploy config — security headers and cache rules |

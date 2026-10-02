@@ -60,6 +60,24 @@ a{ color:inherit; text-decoration:none }
 .dim{ color:var(--muted) }
 .prompt{ color:var(--green) }
 
+/* ── topbar / primary nav ─────────────────────────────── */
+.topbar{
+  position:sticky; top:0; z-index:30;
+  background:rgba(10,14,20,.86); border-bottom:1px solid var(--line-soft);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+}
+.topbar-in{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.7rem 0 }
+.brand{ font-size:12px; color:var(--muted); letter-spacing:.04em; white-space:nowrap }
+.brand:hover{ color:var(--green) }
+.nav ul{ display:flex; flex-wrap:wrap; gap:.35rem 1.35rem; list-style:none; margin:0; padding:0 }
+.nav a{
+  font-size:12px; color:var(--dim); letter-spacing:.03em;
+  padding:.25rem 0; border-bottom:1px solid transparent; transition:color .2s, border-color .2s;
+}
+.nav a:hover{ color:var(--green); border-bottom-color:var(--line) }
+main{ scroll-margin-top:3.25rem }
+section[id]{ scroll-margin-top:3.5rem }
+
 /* ══════════════════════ HERO ══════════════════════ */
 .hero{
   position:relative; overflow:hidden;
@@ -143,6 +161,10 @@ a{ color:inherit; text-decoration:none }
   background:var(--surface); transition:border-color .25s, background .25s, transform .25s;
 }
 .card:hover{ border-color:var(--line); background:var(--surface-hover); transform:translateY(-3px) }
+.card-title{
+  font-size:15px; font-weight:500; color:var(--fg);
+  margin:.7rem 0 0; letter-spacing:-.01em;
+}
 .card-cmd{ font-size:13px; display:flex; flex-wrap:wrap; gap:.5rem; align-items:baseline }
 .kw{ color:var(--fg) }
 .stars{ margin-left:auto; font-size:11px; color:var(--yellow) }
@@ -165,7 +187,7 @@ a{ color:inherit; text-decoration:none }
 /* ── stack columns ── */
 .cols{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2.5rem 1.5rem }
 .col-head{
-  font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-size:10.5px; font-weight:400; letter-spacing:.16em; text-transform:uppercase;
   color:var(--muted); margin:0 0 1rem; padding-bottom:.6rem;
   border-bottom:1px solid var(--line-soft);
 }
@@ -311,6 +333,8 @@ a{ color:inherit; text-decoration:none }
   .out{ padding-left:0 }
   .stars{ margin-left:0 }
   .status-pill{ display:none }
+  .topbar-in{ flex-wrap:wrap; gap:.4rem 1rem; padding:.6rem 0 }
+  .nav ul{ gap:.25rem 1rem }
 }
 
 @media (prefers-reduced-motion:reduce){
